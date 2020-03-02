@@ -1,76 +1,86 @@
+Sub TagesdatumTest01()
+'Deklaration
+Dim nowTagesdatum As String
+Let nowTagesdatum = Now                 'hier wird in der Variable <nowTagesdatum> das aktuelle Datum + Uhrzeit im Format TTMMJJ MMHHSS gespeichert
+
+    MsgBox Month(nowTagesdatum)         'Ausgabe Datum
+
+End Sub
+
 Sub Spalte_verbergen_ORIGINAL()
     '''Deklaration
-    Dim varSpalte As String
-    Dim varDatum As String
+    Dim strDatum As String
+    Dim bytDatum As Byte
     
     '''Initialisierung
-    Let varDatum = Range("A1").Value
+    Let strDatum = Now                  'hier wird auf die Variable <nowTagesdatum> das aktuelle Datum + Uhrzeit im Format TTMMJJ MMHHSS initialisiert
     
-        'Let varSpalte = Val(Range("C2").Value) 'nimmt den Wert der Spalzte C2 auf für Variable varSpalte
-        'MsgBox (varDatum) ''Test der Variable varSpalte
+    Let strDatum = Month(strDatum)      'String wird nur auf Monat minimiert
+    Let bytDatum = strDatum             'String wird von Zeichenkette ("Wort") zu definierter Zahl '!' mit Typumwandlung hat es nicht funktionert '!'
+    Let bytDatum = bytDatum - 1         'aktueller Monat wird - 1 gerechnet um den Monat der Inventur anzuzeigen; Logik: <Inventurmonat = aktueller Monat - 1>
+    
+        '!!!T E S T!!! variable Datum; ÜBERPRÜFUNG DER INITIALISIERUNG
+        MsgBox ("Sie befinden sich nun im Monat " & bytDatum & ".")
         
-    '!!!T E S T!!! variable Datum
-    MsgBox (varDatum)
-    
     '''je nach Datum (Monat) werden die irrelevanten Spalten ausgeblendet
-    Select Case varDatum
-        Case 1, 1 To 31, 1
-          Columns("B").EntireColumn.Hidden = True '"False" zeigt Spalte wieder an
+    Select Case bytDatum
+        Case 1
+          Columns("B").EntireColumn.Hidden = True '"= <False>" zeigt Spalte wieder an
           Columns("E:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
         
-        Case 1, 2 To 31, 2
-          Columns("B:D").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 2
+          Columns("B:D").EntireColumn.Hidden = True
           Columns("G:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
           
-        Case 1, 3 To 31, 3
-          Columns("B:F").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 3
+          Columns("B:F").EntireColumn.Hidden = True
           Columns("I:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
           
-        Case 1, 4 To 31, 4
-          Columns("B:H").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 4
+          Columns("B:H").EntireColumn.Hidden = True
           Columns("K:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
           
-        Case 1, 5 To 31, 5
-          Columns("B:J").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 5
+          Columns("B:J").EntireColumn.Hidden = True
           Columns("M:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
           
-        Case 1, 6 To 31, 6
-          Columns("B:L").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 6
+          Columns("B:L").EntireColumn.Hidden = True
           Columns("O:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
           
-        Case 1, 7 To 31, 7
-          Columns("B:N").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 7
+          Columns("B:N").EntireColumn.Hidden = True
           Columns("Q:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
           
-        Case 1, 8 To 31, 8
-          Columns("B:P").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 8
+          Columns("B:P").EntireColumn.Hidden = True
           Columns("S:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
           
-        Case 1, 9 To 31, 9
-          Columns("B:R").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 9
+          Columns("B:R").EntireColumn.Hidden = True
           Columns("U:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
           
-        Case 1, 10 To 31, 10
-          Columns("B:T").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 10
+          Columns("B:T").EntireColumn.Hidden = True
           Columns("W:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
         
-        Case 1, 11 To 31, 11
-          Columns("B:V").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 11
+          Columns("B:V").EntireColumn.Hidden = True
           Columns("Y:Z").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
 
-        Case 1, 12 To 31, 12
-          Columns("B:X").EntireColumn.Hidden = True  '"False" zeigt Spalte wieder an
+        Case 12
+          Columns("B:X").EntireColumn.Hidden = True
           MsgBox ("Spalten verborgen.")
     End Select
 
@@ -81,21 +91,9 @@ Sub Spalten_alleEinblenden()
     Dim varSpalte As String
     Dim varDatum As String
     
-    '''Initialisierung
-    Let varDatum = Val(Range("A1").Value)
-    
-    '!'!'! TESTOBJEKT!'!'!'
-    '''je nach Datum (Monat) werden die irrelevanten Spalten ausgeblendet
-   
-          Range("B:Z").EntireColumn.Hidden = False '"False" sorgt für Wiedererscheinen
-          MsgBox ("Alle Spalten angezeigt.")
+       
+        Range("B:Z").EntireColumn.Hidden = False '"False" sorgt für Wiedererscheinen
+        MsgBox ("Alle Spalten angezeigt.")
     
     
-End Sub
-
-Sub Spalte_anzeigen()
-    Dim varSpalte As String
-     Let varSpalte = Column.Name
-        Columns("D").Hidden = False
-        MsgBox ("Spalte wird wieder angezeigt.")
 End Sub
